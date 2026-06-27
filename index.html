@@ -172,15 +172,29 @@
     /* ══════════════════════
        07  SHOE VISUAL
     ══════════════════════ */
-    #visual-shoe{min-height:80vh;background:var(--black);display:flex;align-items:center;justify-content:center;padding:80px 40px}
-    .vs-inner{display:flex;align-items:center;gap:clamp(32px,6vw,80px);max-width:960px;width:100%;flex-wrap:wrap;justify-content:center}
+    #visual-shoe{background:var(--black);padding:clamp(72px,10vh,100px) 0 60px;display:flex;flex-direction:column;align-items:center}
+    .vs-inner{display:flex;align-items:center;gap:clamp(32px,6vw,80px);max-width:960px;width:100%;flex-wrap:wrap;justify-content:center;padding:0 clamp(24px,5vw,60px)}
     .vs-shoe{flex:0 0 auto}
-    .vs-shoe svg{width:clamp(280px,50vw,480px);height:auto;filter:drop-shadow(0 8px 32px rgba(201,168,76,.18))}
+    .vs-shoe svg{width:clamp(260px,44vw,440px);height:auto;filter:drop-shadow(0 8px 32px rgba(201,168,76,.18))}
     .vs-text{flex:1;min-width:220px}
     .vs-badge{font-family:var(--display);font-size:clamp(3rem,7vw,5.5rem);font-weight:300;color:rgba(201,168,76,.18);letter-spacing:.05em;line-height:1}
     .vs-title{font-family:var(--serif-en);font-size:clamp(1.4rem,3vw,2rem);font-style:italic;color:var(--ivory);margin-top:8px}
     .vs-body{font-family:var(--serif-ja);font-weight:200;font-size:clamp(.85rem,1.8vw,.95rem);letter-spacing:.1em;line-height:2.5;color:var(--ivory-dark);margin-top:24px}
     .vs-note{font-size:.75rem;color:rgba(248,243,234,.35);letter-spacing:.06em;margin-top:14px}
+    /* ── i/288 story horizontal scroll ── */
+    .i288-story{width:100%;margin-top:64px;padding-top:48px;border-top:1px solid rgba(201,168,76,.1)}
+    .i288-story-label{font-family:var(--display);font-size:.7rem;letter-spacing:.45em;color:var(--gold);text-transform:uppercase;text-align:center;margin-bottom:36px;font-style:italic}
+    .i288-story-track{display:flex;gap:16px;overflow-x:auto;padding:0 clamp(20px,5vw,60px) 28px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;cursor:grab}
+    .i288-story-track::-webkit-scrollbar{height:2px}
+    .i288-story-track::-webkit-scrollbar-track{background:rgba(255,255,255,.03)}
+    .i288-story-track::-webkit-scrollbar-thumb{background:rgba(201,168,76,.28);border-radius:2px}
+    .i288-card{flex:0 0 clamp(240px,68vw,300px);scroll-snap-align:start;background:rgba(201,168,76,.03);border:1px solid rgba(201,168,76,.14);padding:clamp(22px,3vw,32px);position:relative;transition:border-color .3s}
+    .i288-card:hover{border-color:rgba(201,168,76,.35)}
+    .i288-card::before{content:attr(data-num);position:absolute;top:12px;right:16px;font-family:var(--display);font-size:2.8rem;color:rgba(201,168,76,.07);line-height:1;pointer-events:none}
+    .i288-card-ttl{font-family:var(--serif-ja);font-size:clamp(.88rem,1.8vw,.95rem);font-weight:300;letter-spacing:.15em;color:var(--gold);margin-bottom:14px}
+    .i288-card-body{font-family:var(--serif-ja);font-weight:200;font-size:clamp(.76rem,1.5vw,.83rem);letter-spacing:.07em;line-height:2.5;color:rgba(248,243,234,.62)}
+    .i288-card-tag{margin-top:18px;font-family:var(--display);font-size:.62rem;letter-spacing:.28em;color:rgba(201,168,76,.4);font-style:italic}
+    .i288-scroll-hint{text-align:center;font-family:var(--display);font-size:.62rem;letter-spacing:.3em;color:rgba(201,168,76,.25);margin-top:4px;font-style:italic}
 
     /* ══════════════════════
        08  SHOP
@@ -979,6 +993,46 @@
       <p class="vs-note">税込29,160円〜 ／ 納期約5週間</p>
     </div>
   </div>
+
+  <!-- ── i/288 ブランドストーリー 横スクロール ── -->
+  <div class="i288-story">
+    <p class="i288-story-label">The Story of i/288 &ensp;—&ensp; ブランドの歩み</p>
+    <div class="i288-story-track" id="i288Track">
+
+      <div class="i288-card" data-num="01">
+        <p class="i288-card-ttl">誕生の背景</p>
+        <p class="i288-card-body">「パンプスは適切なサイズを履いて初めて、本当の価値を感じてもらえる商品である」という信念のもと、「足入れの良い革靴プロジェクト」としてブランドがスタートしました。</p>
+        <p class="i288-card-tag">The Origin</p>
+      </div>
+
+      <div class="i288-card" data-num="02">
+        <p class="i288-card-ttl">産学官共同研究</p>
+        <p class="i288-card-body">大学・研究機関・メーカーが協力する「産学官プロジェクト」により、パンプスの概念を変える研究開発を実施。導き出された独自の「パンプスメソッド」がブランドの根幹となっています。</p>
+        <p class="i288-card-tag">Research &amp; Development</p>
+      </div>
+
+      <div class="i288-card" data-num="03">
+        <p class="i288-card-ttl">「288」の意味</p>
+        <p class="i288-card-body">専用の3D計測器で足の形を正確に測定し、そのデータをもとに288通りのパターンから最も近いパンプスを提案。「288人の女性がいれば、その数だけ異なる足の形がある」という想いが名前に込められています。</p>
+        <p class="i288-card-tag">288 Patterns</p>
+      </div>
+
+      <div class="i288-card" data-num="04">
+        <p class="i288-card-ttl">選ぶ体験</p>
+        <p class="i288-card-body">測定データに近い靴を複数足ご用意し、実際に履いて歩いていただきます。「しっくりくる一足」を、スタッフと一緒に丁寧に探します。</p>
+        <p class="i288-card-tag">Try &amp; Feel</p>
+      </div>
+
+      <div class="i288-card" data-num="05">
+        <p class="i288-card-ttl">メディア実績</p>
+        <p class="i288-card-body">その独自性と履き心地の良さから、NHK情報番組『あさイチ』などのメディアでも注目を集めました。靴づくりの街・浅草の「パンプスメソッド研究所 i/288」では、誕生の秘密とこだわりを公開しています。</p>
+        <p class="i288-card-tag">NHK あさイチ ほか</p>
+      </div>
+
+    </div>
+    <p class="i288-scroll-hint">← スワイプしてご覧ください →</p>
+  </div>
+
 </section>
 
 <!-- ══ ART DECO DIVIDER ══ -->
