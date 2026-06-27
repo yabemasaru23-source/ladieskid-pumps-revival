@@ -315,6 +315,65 @@
     }
 
     /* ══════════════════════
+       FLIPBOOK
+    ══════════════════════ */
+    #flipbook-section{background:var(--black);padding:clamp(80px,12vh,120px) 40px;overflow:hidden}
+    .fb-wrapper{max-width:860px;margin:0 auto;text-align:center}
+    .fb-label{font-family:var(--display);font-size:.72rem;letter-spacing:.5em;color:var(--gold);text-transform:uppercase;margin-bottom:12px}
+    .fb-title{font-family:var(--serif-ja);font-size:clamp(.82rem,1.6vw,.9rem);font-weight:200;letter-spacing:.2em;color:rgba(248,243,234,.45);margin-bottom:40px}
+    /* book frame */
+    .fb-book{position:relative;width:100%;max-width:720px;margin:0 auto;aspect-ratio:16/10;overflow:hidden;border:1px solid rgba(201,168,76,.25);box-shadow:0 0 60px rgba(201,168,76,.06)}
+    /* pages container */
+    .fb-pages{display:flex;height:100%;transition:transform .65s cubic-bezier(.77,0,.18,1)}
+    /* each page */
+    .fb-page{min-width:100%;height:100%;display:grid;grid-template-columns:1fr 1fr;position:relative}
+    /* left panel (gold) */
+    .fb-left{background:linear-gradient(135deg,#1a1508 0%,#2a2010 100%);border-right:1px solid rgba(201,168,76,.2);display:flex;flex-direction:column;justify-content:center;align-items:center;padding:clamp(24px,4vw,52px);text-align:center;position:relative;overflow:hidden}
+    .fb-left::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 80% at 50% 50%,rgba(201,168,76,.07) 0%,transparent 70%)}
+    .fb-left-num{font-family:var(--display);font-size:clamp(5rem,12vw,9rem);font-weight:300;color:rgba(201,168,76,.08);line-height:1;position:absolute;bottom:12px;right:16px}
+    .fb-left-kicker{font-family:var(--display);font-size:.65rem;letter-spacing:.45em;color:rgba(201,168,76,.6);text-transform:uppercase;margin-bottom:16px;position:relative;z-index:1}
+    .fb-left-h{font-family:var(--serif-ja);font-size:clamp(1.2rem,2.8vw,2rem);font-weight:200;letter-spacing:.18em;line-height:1.6;color:var(--ivory);position:relative;z-index:1}
+    .fb-left-h em{font-style:normal;color:var(--gold)}
+    .fb-left-line{width:32px;height:1px;background:var(--gold);margin:16px auto;position:relative;z-index:1}
+    .fb-left-sub{font-family:var(--serif-ja);font-weight:200;font-size:clamp(.65rem,1.3vw,.8rem);letter-spacing:.1em;line-height:2;color:rgba(248,243,234,.5);position:relative;z-index:1}
+    /* right panel (dark) */
+    .fb-right{background:var(--black-soft);display:flex;flex-direction:column;justify-content:center;padding:clamp(20px,3.5vw,44px);overflow:hidden}
+    .fb-item{display:flex;gap:14px;align-items:flex-start;margin-bottom:clamp(12px,2.2vh,20px)}
+    .fb-item:last-child{margin-bottom:0}
+    .fb-item-icon{width:28px;height:28px;border:1px solid rgba(201,168,76,.4);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+    .fb-item-icon svg{width:13px;height:13px;fill:var(--gold)}
+    .fb-item-body h4{font-family:var(--serif-ja);font-size:clamp(.75rem,1.4vw,.88rem);font-weight:400;letter-spacing:.08em;color:var(--ivory);margin-bottom:4px}
+    .fb-item-body p{font-family:var(--serif-ja);font-weight:200;font-size:clamp(.62rem,1.1vw,.75rem);letter-spacing:.06em;line-height:1.9;color:rgba(248,243,234,.5)}
+    /* step style */
+    .fb-step{display:flex;gap:12px;align-items:flex-start;margin-bottom:clamp(10px,2vh,18px)}
+    .fb-step:last-child{margin-bottom:0}
+    .fb-step-n{font-family:var(--display);font-size:1.4rem;font-weight:300;color:var(--gold);line-height:1;min-width:24px;padding-top:2px}
+    .fb-step-body h4{font-family:var(--serif-ja);font-size:clamp(.75rem,1.4vw,.88rem);font-weight:400;color:var(--ivory);letter-spacing:.06em;margin-bottom:3px}
+    .fb-step-body p{font-family:var(--serif-ja);font-weight:200;font-size:clamp(.6rem,1.1vw,.74rem);letter-spacing:.05em;line-height:1.9;color:rgba(248,243,234,.5)}
+    /* stat style */
+    .fb-stats{display:grid;grid-template-columns:1fr 1fr;gap:clamp(8px,2vw,16px);margin-bottom:clamp(10px,2vh,18px)}
+    .fb-stat{border:1px solid rgba(201,168,76,.18);padding:clamp(8px,1.5vw,14px);text-align:center}
+    .fb-stat-n{font-family:var(--display);font-size:clamp(1.4rem,3vw,2.2rem);font-weight:300;color:var(--gold);line-height:1}
+    .fb-stat-n sup{font-size:.55em;vertical-align:super}
+    .fb-stat-l{font-family:var(--serif-ja);font-size:clamp(.58rem,1vw,.7rem);font-weight:200;letter-spacing:.06em;color:rgba(248,243,234,.5);line-height:1.6;margin-top:4px}
+    .fb-addr{font-family:var(--serif-ja);font-weight:200;font-size:clamp(.62rem,1.1vw,.74rem);letter-spacing:.08em;line-height:2;color:rgba(248,243,234,.5);border-top:1px solid rgba(201,168,76,.12);padding-top:clamp(8px,1.5vh,14px)}
+    .fb-addr strong{font-weight:300;color:var(--gold)}
+    /* navigation */
+    .fb-nav{display:flex;align-items:center;justify-content:center;gap:24px;margin-top:28px}
+    .fb-btn{background:none;border:1px solid rgba(201,168,76,.35);color:var(--gold);width:40px;height:40px;cursor:pointer;font-size:1rem;transition:all .3s;display:flex;align-items:center;justify-content:center}
+    .fb-btn:hover{background:var(--gold);color:var(--black)}
+    .fb-btn:disabled{opacity:.25;cursor:default}
+    .fb-dots{display:flex;gap:10px;align-items:center}
+    .fb-dot{width:6px;height:6px;border-radius:50%;background:rgba(201,168,76,.25);cursor:pointer;transition:all .3s;border:none;padding:0}
+    .fb-dot.active{background:var(--gold);transform:scale(1.3)}
+    .fb-page-label{font-family:var(--display);font-size:.65rem;letter-spacing:.3em;color:rgba(201,168,76,.4);min-width:60px;text-align:center}
+    @media(max-width:640px){
+      .fb-book{aspect-ratio:unset;height:auto}
+      .fb-page{grid-template-columns:1fr;min-height:520px}
+      .fb-right{padding:20px 18px}
+    }
+
+    /* ══════════════════════
        COLLECTION (pumpu004)
     ══════════════════════ */
     #collection{background:var(--black);padding:clamp(80px,12vh,140px) 0;overflow:hidden}
@@ -493,19 +552,167 @@
   </svg>
 </div>
 
-<!-- ══ CANVA POSTER ══ -->
-<section id="visual-poster" style="min-height:100vh;background:var(--black);display:flex;align-items:center;justify-content:center;padding:60px 40px;overflow:hidden">
-  <div style="max-width:860px;width:100%;text-align:center">
-    <p style="font-family:var(--display);font-size:.75rem;letter-spacing:.45em;color:var(--gold);text-transform:uppercase;margin-bottom:32px" class="reveal">Campaign Visual</p>
-    <div style="position:relative;display:inline-block;width:100%" class="reveal-scale">
-      <!-- 細枠（映画ポスター風） -->
-      <div style="position:absolute;inset:10px;border:1px solid rgba(201,168,76,.3);pointer-events:none;z-index:1"></div>
-      <img src="images/canva-poster-c.jpg"
-           alt="池袋でパンプスを — レディースキッド キャンペーンポスター"
-           style="width:100%;height:auto;display:block;max-height:80vh;object-fit:cover"
-           loading="lazy">
+<!-- ══ FLIPBOOK ══ -->
+<section id="flipbook-section">
+  <div class="fb-wrapper reveal">
+    <p class="fb-label">Ladies&#x27; Kid &ensp;— &ensp;Fitting Book</p>
+    <p class="fb-title">ページをめくって、あなたに合う一足を見つけてください</p>
+
+    <div class="fb-book">
+      <div class="fb-pages" id="fbPages">
+
+        <!-- ── 扉ページ ── -->
+        <div class="fb-page">
+          <div class="fb-left">
+            <div class="fb-left-num">0</div>
+            <p class="fb-left-kicker">For You</p>
+            <h3 class="fb-left-h">パンプスを<br><em>諦めないで。</em></h3>
+            <div class="fb-left-line"></div>
+            <p class="fb-left-sub">「痛い」「脱げる」「サイズがない」<br>その悩み、すべて<br>シューフィッターが解決します。</p>
+          </div>
+          <div class="fb-right" style="justify-content:center;align-items:center;text-align:center;gap:0">
+            <p style="font-family:var(--display);font-size:.65rem;letter-spacing:.4em;color:rgba(201,168,76,.5);text-transform:uppercase;margin-bottom:20px">Fitting Guide</p>
+            <div style="width:60px;height:1px;background:rgba(201,168,76,.25);margin:0 auto 20px"></div>
+            <p style="font-family:var(--serif-ja);font-weight:200;font-size:clamp(.72rem,1.3vw,.84rem);letter-spacing:.1em;line-height:2.4;color:rgba(248,243,234,.5)">次のページへ進むと<br>お悩み解消・フィッティング体験・<br>レディースキッドのご紹介を<br>ご覧いただけます</p>
+            <div style="margin-top:24px;font-family:var(--display);font-size:.62rem;letter-spacing:.3em;color:rgba(201,168,76,.4)">→ TAP TO TURN</div>
+          </div>
+        </div>
+
+        <!-- ── P1：よくあるお悩み ── -->
+        <div class="fb-page">
+          <div class="fb-left">
+            <div class="fb-left-num">1</div>
+            <p class="fb-left-kicker">Concern</p>
+            <h3 class="fb-left-h">こんな経験、<br><em>ありませんか？</em></h3>
+            <div class="fb-left-line"></div>
+            <p class="fb-left-sub">あなただけではありません。<br>多くの方が同じ悩みを<br>抱えてご来店されています。</p>
+          </div>
+          <div class="fb-right">
+            <div class="fb-item">
+              <div class="fb-item-icon"><svg viewBox="0 0 16 16"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zm0 12.5A5.5 5.5 0 1 1 8 2.5a5.5 5.5 0 0 1 0 11zm.75-8.25h-1.5v4.5l3.9 2.34.75-1.23-3.15-1.88V5.25z"/></svg></div>
+              <div class="fb-item-body">
+                <h4>「痛くて長時間履けない」</h4>
+                <p>足の形に合っていない靴が原因。正しいフィッティングで解消できます。</p>
+              </div>
+            </div>
+            <div class="fb-item">
+              <div class="fb-item-icon"><svg viewBox="0 0 16 16"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zm0 12.5A5.5 5.5 0 1 1 8 2.5a5.5 5.5 0 0 1 0 11zm.75-8.25h-1.5v4.5l3.9 2.34.75-1.23-3.15-1.88V5.25z"/></svg></div>
+              <div class="fb-item-body">
+                <h4>「歩くたびに脱げてしまう」</h4>
+                <p>甲の高さや足幅が合っていないサイン。当店では幅EEE〜AAAまで対応。</p>
+              </div>
+            </div>
+            <div class="fb-item">
+              <div class="fb-item-icon"><svg viewBox="0 0 16 16"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zm0 12.5A5.5 5.5 0 1 1 8 2.5a5.5 5.5 0 0 1 0 11zm.75-8.25h-1.5v4.5l3.9 2.34.75-1.23-3.15-1.88V5.25z"/></svg></div>
+              <div class="fb-item-body">
+                <h4>「市販品でサイズが見つからない」</h4>
+                <p>19cm〜24cm の小さいサイズを専門に取り扱っています。</p>
+              </div>
+            </div>
+            <div class="fb-item">
+              <div class="fb-item-icon"><svg viewBox="0 0 16 16"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zm0 12.5A5.5 5.5 0 1 1 8 2.5a5.5 5.5 0 0 1 0 11zm.75-8.25h-1.5v4.5l3.9 2.34.75-1.23-3.15-1.88V5.25z"/></svg></div>
+              <div class="fb-item-body">
+                <h4>「もう年齢的に諦めていた」</h4>
+                <p>40代・50代・60代のお客様が毎日ご来店。年齢は関係ありません。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── P2：フィッティングの流れ ── -->
+        <div class="fb-page">
+          <div class="fb-left">
+            <div class="fb-left-num">2</div>
+            <p class="fb-left-kicker">Fitting</p>
+            <h3 class="fb-left-h">シューフィッターが<br><em>丁寧に対応。</em></h3>
+            <div class="fb-left-line"></div>
+            <p class="fb-left-sub">全スタッフがシューフィッティングの<br>専門知識を持ち、<br>お一人おひとりに<br>寄り添います。</p>
+          </div>
+          <div class="fb-right">
+            <div class="fb-step">
+              <div class="fb-step-n">1</div>
+              <div class="fb-step-body">
+                <h4>足の計測（無料）</h4>
+                <p>足長・足囲・甲の高さ・アーチを精密に計測。ご自身の正確なサイズがわかります。</p>
+              </div>
+            </div>
+            <div class="fb-step">
+              <div class="fb-step-n">2</div>
+              <div class="fb-step-body">
+                <h4>お悩みヒアリング</h4>
+                <p>「どんな場面で履きたいか」「過去に困ったこと」を丁寧にお聞きします。</p>
+              </div>
+            </div>
+            <div class="fb-step">
+              <div class="fb-step-n">3</div>
+              <div class="fb-step-body">
+                <h4>複数スタイルを試着</h4>
+                <p>ヒールの高さ・つま先の形・素材など、最適な候補を複数ご用意します。</p>
+              </div>
+            </div>
+            <div class="fb-step">
+              <div class="fb-step-n">4</div>
+              <div class="fb-step-body">
+                <h4>歩行チェック＆アドバイス</h4>
+                <p>実際に歩いていただき、履き心地・安定感を確認してから決定します。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── P3：キッドのご紹介 ── -->
+        <div class="fb-page">
+          <div class="fb-left">
+            <div class="fb-left-num">3</div>
+            <p class="fb-left-kicker">About Us</p>
+            <h3 class="fb-left-h">レディース<br><em>キッドとは</em></h3>
+            <div class="fb-left-line"></div>
+            <p class="fb-left-sub">小さいサイズの婦人靴に<br>特化した専門店。<br>創業75年、<br>池袋で歩み続けています。</p>
+          </div>
+          <div class="fb-right">
+            <div class="fb-stats">
+              <div class="fb-stat">
+                <div class="fb-stat-n">75<sup>年</sup></div>
+                <div class="fb-stat-l">創業からの歴史<br>（1951年〜）</div>
+              </div>
+              <div class="fb-stat">
+                <div class="fb-stat-n">19<sup>〜</sup></div>
+                <div class="fb-stat-l">19〜24cmの<br>小さいサイズ専門</div>
+              </div>
+              <div class="fb-stat">
+                <div class="fb-stat-n">AAA</div>
+                <div class="fb-stat-l">細幅〜広幅まで<br>幅広いウィズ対応</div>
+              </div>
+              <div class="fb-stat">
+                <div class="fb-stat-n">全員</div>
+                <div class="fb-stat-l">スタッフ全員が<br>シューフィッター資格</div>
+              </div>
+            </div>
+            <div class="fb-addr">
+              <strong>レディースキッド 池袋店</strong><br>
+              東京都豊島区 ／ 池袋駅より徒歩圏内<br>
+              取扱ブランド：i/288 ほか小さいサイズ専門ブランド多数<br>
+              ご来店・ご相談は予約不要
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /fb-pages -->
+    </div><!-- /fb-book -->
+
+    <!-- navigation -->
+    <div class="fb-nav">
+      <button class="fb-btn" id="fbPrev" disabled>&#8592;</button>
+      <div class="fb-dots">
+        <button class="fb-dot active" data-p="0"></button>
+        <button class="fb-dot" data-p="1"></button>
+        <button class="fb-dot" data-p="2"></button>
+        <button class="fb-dot" data-p="3"></button>
+      </div>
+      <button class="fb-btn" id="fbNext">&#8594;</button>
     </div>
-    <p style="font-family:var(--serif-ja);font-weight:200;font-size:.82rem;letter-spacing:.2em;color:rgba(248,243,234,.35);margin-top:20px" class="reveal">Designed with Canva ✦ Ladies' Kid 2026</p>
+    <p style="margin-top:12px;font-family:var(--display);font-size:.62rem;letter-spacing:.3em;color:rgba(201,168,76,.3)">← PREV &ensp;/&ensp; NEXT →</p>
+
   </div>
 </section>
 
@@ -889,6 +1096,34 @@
     e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')})
   },{threshold:.12,rootMargin:'0px 0px -40px 0px'});
   document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-scale').forEach(el=>io.observe(el));
+
+  /* ── Flipbook ── */
+  (function(){
+    const pages = document.getElementById('fbPages');
+    const dots  = document.querySelectorAll('.fb-dot');
+    const prev  = document.getElementById('fbPrev');
+    const next  = document.getElementById('fbNext');
+    if(!pages) return;
+    let cur = 0;
+    const total = pages.querySelectorAll('.fb-page').length;
+    function go(n){
+      cur = Math.max(0, Math.min(n, total-1));
+      pages.style.transform = 'translateX(-' + cur * 100 + '%)';
+      dots.forEach((d,i) => d.classList.toggle('active', i===cur));
+      prev.disabled = cur === 0;
+      next.disabled = cur === total - 1;
+    }
+    prev.addEventListener('click', () => go(cur-1));
+    next.addEventListener('click', () => go(cur+1));
+    dots.forEach(d => d.addEventListener('click', () => go(+d.dataset.p)));
+    /* swipe */
+    let sx=0;
+    pages.addEventListener('touchstart', e=>{sx=e.touches[0].clientX},{passive:true});
+    pages.addEventListener('touchend', e=>{
+      const dx = e.changedTouches[0].clientX - sx;
+      if(Math.abs(dx)>50) go(dx<0 ? cur+1 : cur-1);
+    });
+  })();
 
   const listIo = new IntersectionObserver(e=>{
     e.forEach(x=>{
