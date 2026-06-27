@@ -65,7 +65,9 @@
        01  HERO
     ══════════════════════ */
     #hero{min-height:100vh;background:var(--black);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 32px}
-    #hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 65% at 50% 50%,rgba(201,168,76,.045) 0%,transparent 65%);pointer-events:none}
+    #hero .hero-bg{position:absolute;inset:0;background-image:url('images/pumpu001.png');background-size:cover;background-position:center 30%;opacity:.42;pointer-events:none}
+    #hero::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,8,8,.65) 0%,rgba(8,8,8,.3) 45%,rgba(8,8,8,.75) 100%);pointer-events:none;z-index:1}
+    #hero .film-line,#hero .h-pre,#hero h1,#hero .h-ja,#hero .h-ornament,#hero .h-tag,#hero .h-scroll{position:relative;z-index:2}
     /* top & bottom gold film lines */
     #hero .film-line{position:absolute;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent 0%,var(--gold) 30%,var(--gold) 70%,transparent 100%);opacity:.25}
     #hero .film-line.top{top:0}
@@ -239,11 +241,80 @@
     .ft-sub{font-family:var(--serif-ja);font-weight:200;font-size:.78rem;letter-spacing:.22em;color:rgba(248,243,234,.35)}
     .ft-copy{margin-top:20px;font-size:.68rem;color:rgba(248,243,234,.18)}
 
+    /* ══════════════════════
+       PHOTO SLIDER (style gallery)
+    ══════════════════════ */
+    #photo-gallery{background:var(--black);overflow:hidden;position:relative}
+    .gallery-slider{display:flex;transition:transform .7s cubic-bezier(.77,0,.18,1)}
+    .gallery-slide{min-width:100%;position:relative}
+    .gallery-slide img{width:100%;height:100vh;object-fit:cover;object-position:center 20%;display:block;opacity:.72}
+    .gallery-slide-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(8,8,8,.72) 0%,rgba(8,8,8,.2) 55%,rgba(8,8,8,.5) 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(40px,8vw,100px)}
+    .gallery-copy-label{font-family:var(--display);font-size:.7rem;letter-spacing:.5em;color:var(--gold);text-transform:uppercase;margin-bottom:18px}
+    .gallery-copy-main{font-family:var(--serif-ja);font-size:clamp(1.8rem,4.5vw,3.5rem);font-weight:200;letter-spacing:.2em;line-height:1.6;color:var(--ivory);margin-bottom:20px}
+    .gallery-copy-main em{font-style:normal;color:var(--gold)}
+    .gallery-copy-sub{font-family:var(--serif-ja);font-weight:200;font-size:clamp(.82rem,1.6vw,.95rem);letter-spacing:.14em;line-height:2.4;color:rgba(248,243,234,.65);max-width:420px}
+    .gallery-nav{position:absolute;bottom:40px;right:clamp(24px,6vw,80px);display:flex;gap:12px;z-index:10}
+    .gallery-dot{width:28px;height:2px;background:rgba(201,168,76,.35);cursor:pointer;transition:background .3s}
+    .gallery-dot.active{background:var(--gold)}
+    .gallery-arrow{position:absolute;top:50%;transform:translateY(-50%);background:none;border:1px solid rgba(201,168,76,.4);color:var(--gold);width:48px;height:48px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1.2rem;transition:all .3s;z-index:10}
+    .gallery-arrow:hover{background:var(--gold);color:var(--black)}
+    .gallery-arrow.prev{left:24px}
+    .gallery-arrow.next{right:24px}
+
+    /* ══════════════════════
+       BREAKFAST SECTION (pumpu003)
+    ══════════════════════ */
+    #breakfast{min-height:100vh;position:relative;overflow:hidden}
+    #breakfast img.bf-photo{width:100%;height:100%;object-fit:cover;object-position:center top;position:absolute;inset:0;opacity:.75}
+    #breakfast::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(8,8,8,.8) 0%,rgba(8,8,8,.3) 60%,rgba(8,8,8,.05) 100%)}
+    .bf-inner{position:relative;z-index:2;min-height:100vh;display:flex;align-items:center;padding:clamp(60px,10vw,120px) clamp(32px,8vw,100px)}
+    .bf-content{max-width:480px}
+    .bf-kicker{font-family:var(--display);font-size:.72rem;letter-spacing:.5em;color:var(--gold);text-transform:uppercase;margin-bottom:28px}
+    .bf-headline{font-family:var(--serif-ja);font-size:clamp(2rem,5vw,3.8rem);font-weight:200;letter-spacing:.18em;line-height:1.55;color:var(--ivory);margin-bottom:32px}
+    .bf-headline em{font-style:normal;color:var(--gold);display:block}
+    .bf-body{font-family:var(--serif-ja);font-weight:200;font-size:clamp(.85rem,1.7vw,.98rem);letter-spacing:.1em;line-height:2.8;color:rgba(248,243,234,.72);margin-bottom:40px}
+    .bf-quote{border-left:2px solid var(--gold);padding-left:20px;font-family:var(--serif-en);font-size:clamp(1rem,2.2vw,1.35rem);font-style:italic;color:var(--gold);line-height:1.7;margin-bottom:40px}
+    .bf-tag{font-family:var(--serif-ja);font-size:.78rem;letter-spacing:.2em;color:rgba(201,168,76,.6)}
+
+    /* ══════════════════════
+       COLLECTION (pumpu004)
+    ══════════════════════ */
+    #collection{background:var(--black);padding:clamp(80px,12vh,140px) 0;overflow:hidden}
+    .col-inner{max-width:1200px;margin:0 auto;padding:0 clamp(24px,5vw,60px)}
+    .col-header{text-align:center;margin-bottom:clamp(48px,8vh,80px)}
+    .col-kicker{font-family:var(--display);font-size:.72rem;letter-spacing:.5em;color:var(--gold);text-transform:uppercase;margin-bottom:20px}
+    .col-ttl{font-family:var(--serif-ja);font-size:clamp(1.5rem,3.5vw,2.6rem);font-weight:200;letter-spacing:.25em;color:var(--ivory);line-height:1.7}
+    .col-ttl em{font-style:normal;color:var(--gold)}
+    .col-layout{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,56px);align-items:center}
+    .col-photo{position:relative}
+    .col-photo img{width:100%;height:auto;display:block}
+    .col-photo-frame{position:absolute;inset:12px;border:1px solid rgba(201,168,76,.2);pointer-events:none}
+    .col-copy{padding:clamp(24px,4vw,48px)}
+    .col-copy-num{font-family:var(--display);font-size:clamp(4rem,9vw,7rem);font-weight:300;color:rgba(201,168,76,.12);line-height:1;margin-bottom:-20px}
+    .col-copy-ttl{font-family:var(--serif-ja);font-size:clamp(1.2rem,2.5vw,1.8rem);font-weight:300;letter-spacing:.18em;color:var(--ivory);margin-bottom:24px}
+    .col-copy-body{font-family:var(--serif-ja);font-weight:200;font-size:clamp(.85rem,1.6vw,.95rem);letter-spacing:.1em;line-height:2.8;color:var(--ivory-dark);margin-bottom:28px}
+    .col-copy-tag{font-family:var(--display);font-size:.7rem;letter-spacing:.4em;color:var(--gold);text-transform:uppercase}
+    @media(max-width:700px){.col-layout{grid-template-columns:1fr}}
+
+    /* ══════════════════════
+       COLOR LINEUP (pumpu005)
+    ══════════════════════ */
+    #lineup{background:var(--charcoal);overflow:hidden;position:relative}
+    .lineup-photo{width:100%;display:block}
+    .lineup-photo img{width:100%;height:clamp(340px,60vh,640px);object-fit:cover;object-position:center 35%;display:block;opacity:.78}
+    .lineup-overlay{position:absolute;inset:0;background:linear-gradient(0deg,rgba(8,8,8,.9) 0%,rgba(8,8,8,.4) 40%,rgba(8,8,8,.1) 100%)}
+    .lineup-text{position:absolute;bottom:0;left:0;right:0;padding:clamp(32px,6vw,72px);text-align:center;z-index:2}
+    .lineup-kicker{font-family:var(--display);font-size:.7rem;letter-spacing:.5em;color:var(--gold);text-transform:uppercase;margin-bottom:18px}
+    .lineup-ttl{font-family:var(--serif-ja);font-size:clamp(1.4rem,3.5vw,2.4rem);font-weight:200;letter-spacing:.22em;color:var(--ivory);margin-bottom:16px}
+    .lineup-body{font-family:var(--serif-ja);font-weight:200;font-size:clamp(.82rem,1.6vw,.92rem);letter-spacing:.12em;line-height:2.4;color:rgba(248,243,234,.6);max-width:580px;margin:0 auto}
+
     @media(max-width:768px){
       #heritage,#question,#declaration,#theshop,#flow,#voices,#cta,#visual-type,#spread{padding:80px 24px}
       .voice-card{padding:24px 20px 24px 24px}
       .cta-btn{padding:16px 40px;font-size:.9rem}
       .flow-item{gap:18px}
+      .gallery-slide img{height:70vh}
+      .gallery-arrow{display:none}
     }
   </style>
 </head>
@@ -251,6 +322,7 @@
 
 <!-- ══ 01  HERO ══ -->
 <section id="hero">
+  <div class="hero-bg"></div>
   <div class="film-line top"></div>
   <p class="h-pre">Ladies&#x27; Kid &ensp;Presents</p>
   <h1 class="h-title">Pumps in Ikebukuro</h1>
@@ -262,6 +334,69 @@
     <span>Scroll</span>
   </div>
   <div class="film-line bottom"></div>
+</section>
+
+<!-- ══ PHOTO GALLERY SLIDER ══ -->
+<section id="photo-gallery" aria-label="スタイルギャラリー">
+  <button class="gallery-arrow prev" aria-label="前の写真">&#8592;</button>
+  <button class="gallery-arrow next" aria-label="次の写真">&#8594;</button>
+  <div class="gallery-slider" id="gallerySlider">
+    <!-- SLIDE 1 -->
+    <div class="gallery-slide">
+      <img src="images/pumpu001.png" alt="クリームグリッターパンプスを履いた女性、カフェテラスで" loading="eager">
+      <div class="gallery-slide-overlay">
+        <p class="gallery-copy-label">Style 01 &ensp;— &ensp;Morning Grace</p>
+        <h2 class="gallery-copy-main">光を纏う、<br><em>上品な一足。</em></h2>
+        <p class="gallery-copy-sub">グリッターが朝の光に溶ける。<br>どんな日も、自分らしく歩き出せる靴がある。</p>
+      </div>
+    </div>
+    <!-- SLIDE 2 -->
+    <div class="gallery-slide">
+      <img src="images/pumpu002.png" alt="ベージュパンプスとトレンチコートのエレガントスタイル" loading="lazy">
+      <div class="gallery-slide-overlay">
+        <p class="gallery-copy-label">Style 02 &ensp;— &ensp;City Elegance</p>
+        <h2 class="gallery-copy-main">街に似合う、<br><em>大人の品格。</em></h2>
+        <p class="gallery-copy-sub">シンプルなベージュが、装いを格上げする。<br>i/288 が提案する、今日の自分への投資。</p>
+      </div>
+    </div>
+    <!-- SLIDE 3 -->
+    <div class="gallery-slide">
+      <img src="images/pumpu007.png" alt="エレガントなパンプスを履いた女性" loading="lazy">
+      <div class="gallery-slide-overlay">
+        <p class="gallery-copy-label">Style 03 &ensp;— &ensp;Your Story</p>
+        <h2 class="gallery-copy-main">あなただけの、<br><em>一足に出会う。</em></h2>
+        <p class="gallery-copy-sub">創業75年のシューフィッターが、<br>足の形・歩き方・好みに寄り添ってご提案します。</p>
+      </div>
+    </div>
+  </div>
+  <div class="gallery-nav">
+    <div class="gallery-dot active" data-idx="0"></div>
+    <div class="gallery-dot" data-idx="1"></div>
+    <div class="gallery-dot" data-idx="2"></div>
+  </div>
+</section>
+
+<!-- ══ BREAKFAST SECTION ══ -->
+<section id="breakfast">
+  <img class="bf-photo" src="images/pumpu003.png" alt="パンプスで朝食を — 池袋でパンプスを キャンペーンビジュアル" loading="lazy">
+  <div class="bf-inner">
+    <div class="bf-content reveal">
+      <p class="bf-kicker">Campaign Visual &ensp;2026</p>
+      <h2 class="bf-headline">
+        パンプスで、<br>
+        <em>朝食を。</em>
+      </h2>
+      <blockquote class="bf-quote">
+        "She wore them like she owned<br>every street in the city."
+      </blockquote>
+      <p class="bf-body">
+        あの映画の主人公が教えてくれた。<br>
+        パンプスは靴ではなく、生き方だと。<br>
+        諦めていた美しさに、今日こそ還ろう。
+      </p>
+      <p class="bf-tag">Ladies&#x27; Kid &ensp;Ikebukuro &ensp;&#x2014;&ensp; Est. 1951</p>
+    </div>
+  </div>
 </section>
 
 <!-- ══ ART DECO DIVIDER ══ -->
@@ -358,6 +493,61 @@
            loading="lazy">
     </div>
     <p style="font-family:var(--serif-ja);font-weight:200;font-size:.82rem;letter-spacing:.2em;color:rgba(248,243,234,.35);margin-top:20px" class="reveal">Designed with Canva ✦ Ladies' Kid 2026</p>
+  </div>
+</section>
+
+<!-- ══ ART DECO DIVIDER ══ -->
+<div class="deco" aria-hidden="true">
+  <svg viewBox="0 0 480 36" xmlns="http://www.w3.org/2000/svg">
+    <line x1="0" y1="18" x2="195" y2="18" stroke="#c9a84c" stroke-width=".6" opacity=".3"/>
+    <circle cx="200" cy="18" r="3" fill="none" stroke="#c9a84c" stroke-width=".8" opacity=".6"/>
+    <circle cx="240" cy="18" r="8" fill="none" stroke="#c9a84c" stroke-width=".8" opacity=".5"/>
+    <circle cx="240" cy="18" r="3" fill="#c9a84c" opacity=".5"/>
+    <circle cx="280" cy="18" r="3" fill="none" stroke="#c9a84c" stroke-width=".8" opacity=".6"/>
+    <line x1="285" y1="18" x2="480" y2="18" stroke="#c9a84c" stroke-width=".6" opacity=".3"/>
+  </svg>
+</div>
+
+<!-- ══ COLLECTION (pumpu004) ══ -->
+<section id="collection">
+  <div class="col-inner">
+    <div class="col-header reveal">
+      <p class="col-kicker">i/288 Collection &ensp;— &ensp;Pastel Palette</p>
+      <h2 class="col-ttl">上品さは、<br><em>選ぶ自由</em>から生まれる。</h2>
+    </div>
+    <div class="col-layout">
+      <div class="col-photo reveal-left">
+        <img src="images/pumpu004.png" alt="パステルカラーのパンプスコレクション、マーブル台に並ぶ i/288" loading="lazy">
+        <div class="col-photo-frame"></div>
+      </div>
+      <div class="col-copy reveal-right">
+        <div class="col-copy-num">01</div>
+        <h3 class="col-copy-ttl">あなたの色が、<br>きっとある。</h3>
+        <p class="col-copy-body">
+          アイボリー、ピンク、コーラル、セージグリーン、スカイブルー、ラベンダー——<br>
+          i/288のパンプスは、あなたの「今日の気分」を映し出す豊富なカラーラインナップを揃えています。<br><br>
+          どの色を選んでも、足元から始まる物語がある。
+        </p>
+        <p class="col-copy-tag">Curated by Shoefit Specialists</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ COLOR LINEUP (pumpu005) ══ -->
+<section id="lineup" style="position:relative">
+  <div class="lineup-photo">
+    <img src="images/pumpu005.png" alt="カラフルなパンプスがショップに並ぶ i/288 カラーラインナップ" loading="lazy">
+  </div>
+  <div class="lineup-overlay"></div>
+  <div class="lineup-text reveal">
+    <p class="lineup-kicker">Full Color Lineup &ensp;— &ensp;i/288</p>
+    <h2 class="lineup-ttl">赤も、黄も、緑も。<br>諦めない色がある。</h2>
+    <p class="lineup-body">
+      全色をシューフィッターがセレクト。<br>
+      試着して、歩いて、自分に合う一足を見つけてください。<br>
+      池袋レディースキッドで、あなただけの色に出会えます。
+    </p>
   </div>
 </section>
 
@@ -615,6 +805,28 @@
     })
   },{threshold:.2});
   document.querySelectorAll('.give-up').forEach(el=>listIo.observe(el));
+
+  /* ── Photo Gallery Slider ── */
+  (function(){
+    const slider = document.getElementById('gallerySlider');
+    if(!slider) return;
+    const slides = slider.querySelectorAll('.gallery-slide');
+    const dots = document.querySelectorAll('.gallery-dot');
+    const prev = document.querySelector('.gallery-arrow.prev');
+    const next = document.querySelector('.gallery-arrow.next');
+    let cur = 0, timer;
+    function go(n){
+      cur = (n + slides.length) % slides.length;
+      slider.style.transform = 'translateX(-' + cur * 100 + '%)';
+      dots.forEach((d,i)=>d.classList.toggle('active', i===cur));
+    }
+    function autoPlay(){ timer = setInterval(()=>go(cur+1), 4500); }
+    function reset(){ clearInterval(timer); autoPlay(); }
+    if(prev) prev.addEventListener('click',()=>{go(cur-1);reset();});
+    if(next) next.addEventListener('click',()=>{go(cur+1);reset();});
+    dots.forEach(d=>d.addEventListener('click',()=>{go(+d.dataset.idx);reset();}));
+    autoPlay();
+  })();
 </script>
 </body>
 </html>
