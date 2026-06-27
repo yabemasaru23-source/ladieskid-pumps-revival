@@ -66,7 +66,7 @@
     ══════════════════════ */
     #hero{min-height:100vh;background:var(--black);display:grid;grid-template-columns:1fr 1fr;align-items:stretch}
     #hero .hero-photo{position:relative;overflow:hidden}
-    #hero .hero-photo img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;opacity:.88}
+    #hero .hero-photo img{width:100%;height:100%;object-fit:cover;object-position:center 68%;display:block;opacity:.88}
     #hero .hero-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(8,8,8,0) 70%,rgba(8,8,8,.9) 100%)}
     #hero .hero-copy{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:clamp(48px,8vw,100px) clamp(32px,6vw,72px);position:relative;z-index:2}
     #hero .hero-copy::before{content:'';position:absolute;left:0;top:0;bottom:0;width:1px;background:linear-gradient(180deg,transparent,rgba(201,168,76,.4),transparent)}
@@ -75,7 +75,7 @@
     #hero .film-line.bottom{bottom:0}
     @media(max-width:768px){
       #hero{grid-template-columns:1fr;grid-template-rows:55vh auto}
-      #hero .hero-photo img{height:55vh}
+      #hero .hero-photo img{height:68vh;object-position:center 72%}
       #hero .hero-photo::after{background:linear-gradient(to bottom,rgba(8,8,8,0) 60%,rgba(8,8,8,.95) 100%)}
       #hero .hero-copy{padding:40px 28px 60px;align-items:center;text-align:center}
       #hero .hero-copy::before{display:none}
@@ -258,7 +258,7 @@
     ══════════════════════ */
     #desire{min-height:100vh;background:var(--black-soft);display:grid;grid-template-columns:1fr 1fr;align-items:stretch}
     #desire .des-photo{position:relative;overflow:hidden}
-    #desire .des-photo img{width:100%;height:100%;object-fit:cover;object-position:center 15%;display:block;opacity:.82}
+    #desire .des-photo img{width:100%;height:100%;object-fit:cover;object-position:center 72%;display:block;opacity:.82}
     #desire .des-copy{display:flex;flex-direction:column;justify-content:center;padding:clamp(48px,8vw,100px) clamp(32px,6vw,72px)}
     .des-kicker{font-family:var(--display);font-size:.7rem;letter-spacing:.5em;color:var(--gold);text-transform:uppercase;margin-bottom:28px}
     .des-ttl{font-family:var(--serif-ja);font-size:clamp(1.6rem,3.8vw,3rem);font-weight:200;letter-spacing:.2em;line-height:1.7;color:var(--ivory);margin-bottom:32px}
@@ -268,7 +268,7 @@
     .des-tag{font-family:var(--display);font-size:.72rem;letter-spacing:.4em;color:rgba(201,168,76,.55);text-transform:uppercase}
     @media(max-width:768px){
       #desire{grid-template-columns:1fr}
-      #desire .des-photo img{height:56vh}
+      #desire .des-photo img{height:65vh;object-position:center 75%}
       #desire .des-copy{padding:48px 28px}
     }
 
@@ -277,7 +277,7 @@
     ══════════════════════ */
     #challenge{min-height:100vh;position:relative;overflow:hidden;background:var(--black)}
     #challenge .ch-photo{position:absolute;inset:0}
-    #challenge .ch-photo img{width:100%;height:100%;object-fit:cover;object-position:center 10%;opacity:.65}
+    #challenge .ch-photo img{width:100%;height:100%;object-fit:cover;object-position:center 68%;opacity:.65}
     #challenge::after{content:'';position:absolute;inset:0;background:linear-gradient(to left,rgba(8,8,8,.85) 0%,rgba(8,8,8,.4) 50%,rgba(8,8,8,.1) 100%)}
     .ch-inner{position:relative;z-index:2;min-height:100vh;display:flex;align-items:center;justify-content:flex-end;padding:clamp(60px,10vw,120px) clamp(32px,8vw,100px)}
     .ch-content{max-width:460px;text-align:right}
@@ -310,7 +310,7 @@
     @media(max-width:768px){
       #selection{grid-template-columns:1fr}
       #selection .sel-photo{order:-1}
-      #selection .sel-photo img{height:56vh}
+      #selection .sel-photo img{height:62vh;object-position:center 40%}
       #selection .sel-copy{padding:48px 28px}
     }
 
